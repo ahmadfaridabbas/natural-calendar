@@ -1,0 +1,86 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "natural-calendar",
+  "title": "Natural Calendar",
+  "description": "Create Apple Calendar events from natural language, e.g. \"Lunch with Sam tomorrow at 1pm\".",
+  "icon": "command-icon.png",
+  "author": "faridabbas",
+  "categories": [
+    "Productivity"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "create-event",
+      "title": "Create Calendar Event",
+      "subtitle": "Natural Calendar",
+      "description": "Type an event in plain English and add it to Apple Calendar.",
+      "mode": "view"
+    },
+    {
+      "name": "quick-add-event",
+      "title": "Quick Add Calendar Event",
+      "subtitle": "Natural Calendar",
+      "description": "Add an event from a single argument, no UI.",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "text",
+          "placeholder": "Lunch with Sam tomorrow at 1pm",
+          "type": "text",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "preferences": [
+    {
+      "name": "defaultCalendar",
+      "title": "Default Calendar",
+      "description": "Name of the calendar new events are added to. Must match a calendar in Calendar.app exactly.",
+      "type": "textfield",
+      "required": false,
+      "default": "Calendar",
+      "placeholder": "Calendar"
+    },
+    {
+      "name": "defaultDuration",
+      "title": "Default Duration (minutes)",
+      "description": "Event length when no end time is given.",
+      "type": "textfield",
+      "required": false,
+      "default": "60",
+      "placeholder": "60"
+    },
+    {
+      "name": "defaultTime",
+      "title": "Default Start Time (HH:MM, 24h)",
+      "description": "Start time used when the text has a date but no time.",
+      "type": "textfield",
+      "required": false,
+      "default": "09:00",
+      "placeholder": "09:00"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.83.0",
+    "@raycast/utils": "^1.17.0",
+    "chrono-node": "^2.7.7",
+    "run-applescript": "^7.0.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.11",
+    "@types/node": "^20.8.10",
+    "@types/react": "19.0.10",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
